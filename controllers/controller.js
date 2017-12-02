@@ -47,12 +47,12 @@ router.get('/articles', function (req, res){
 // Web Scrape Route
 router.get('/scrape', function(req, res) {
 
-  console.log('entering scrape router block');
+//  console.log('entering scrape router block');
 
   // First, grab the body of the html with request
   request('http://www.theonion.com/', function(error, response, html) {
 
-    console.log('entering grab body of the html block');
+//    console.log('entering grab body of the html block');
 
     // Then, load html into cheerio and save it to $ for a shorthand selector
     var $ = cheerio.load(html);
@@ -63,7 +63,7 @@ router.get('/scrape', function(req, res) {
     // Now, grab every everything with a class of "inner" with each "article" tag
     $('article.status-published').each(function(i, element) {
 
-      console.log('entering grab of articles with class of status-published');
+//      console.log('entering grab of articles with class of status-published');
 
         // Create an empty result object
         var result = {};
@@ -71,18 +71,18 @@ router.get('/scrape', function(req, res) {
         // Collect the Article Title (contained in the "h1" of the "header" of "this")
         result.title = $(this).children('header').children('h1').text() + ""; 
 
-        console.log('This is the title: ' + result.title);
+//        console.log('This is the title: ' + result.title);
 
         // Collect the Article Link (contained within the "a" tag of the "h1" in the "header" of "this")
 
         result.link = $(this).children('header').children('h1').children('a').attr('href');
 
-        console.log('This is the link: ' + result.link);
+//        console.log('This is the link: ' + result.link);
 
         // Collect the Article Summary (contained in the next "div" inside of "this")
         result.summary = $(this).children('div').text() + ""; 
 
-        console.log('This is the summary: ' + result.summary);      
+//        console.log('This is the summary: ' + result.summary);      
 
         // Error handling to ensure there are no empty scrapes
         if(result.title !== "" &&  result.summary !== ""){

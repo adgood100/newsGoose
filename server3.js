@@ -36,12 +36,17 @@ app.set('view engine', 'handlebars');
 
 // Set mongoose to leverage built in JavaScript ES6 Promises
 // Connect to the Mongo DB
+
+var db = process.env.MONGO_URI || "mongodb://root:root@ds113606.mlab.com:13606/goodmongo100";
+
   mongoose.Promise = Promise;
-  mongoose.connect('mongodb://localhost/news-goose', {
+//  mongoose.connect('mongodb://localhost/news-goose', {
+//  	useMongoClient: true
+//  });
+
+  mongoose.connect(db, {
   	useMongoClient: true
   });
-
-var db = require('./models/comment.js');
 
 // Import the Comment and Article models
 var Comment = require('./models/comment.js');
