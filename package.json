@@ -1,0 +1,30 @@
+{
+  "name": "newsgoose",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adgood100/newsGoose.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adgood100/newsGoose/issues"
+  },
+  "homepage": "https://github.com/adgood100/newsGoose#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cheerio": "^1.0.0-rc.2",
+    "express": "^4.16.2",
+    "express-handlebars": "^3.0.0",
+    "moment": "^2.19.2",
+    "mongoose": "^4.13.4",
+    "morgan": "^1.9.0",
+    "npm-cli": "^0.1.0",
+    "request": "^2.83.0"
+  }
+}
